@@ -35,8 +35,11 @@
                         <input id="name" type="text" name="name" placeholder="Nama">
                         <label for="emailreg" style="display: none">Email anda</label>
                         <input id="emailreg" type="email" name="email" placeholder="Email address">
+                        <label for="phoneNum" style="display: none">Nomor Telepon Anda</label>
+                        <input id="phoneNum" type="tel" name="phone" placeholder="Nomor Telepon">
                         <label for="passwordreg" style="display: none">Password anda</label>
                         <input id="passwordreg" type="password" name="password" placeholder="Password">
+
                         <p>Your personal data will be used to support your experience throughout this website, to manage
                             access to your account, and for other purposes described in our privacy policy.</p>
                         <button type="submit" class="button">Register</button>

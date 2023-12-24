@@ -15,24 +15,27 @@ class AuthController extends Controller
     }
 
     public function register(Request $request)
-    {
-        $request->validate([
-            'name' => ['required', 'string'],
-            'email' => ['required', 'email', 'unique:users,email'],
-            'password' => ['required'],
-        ]);
+{
+    $request->validate([
+        'name' => ['required', 'string'],
+        'email' => ['required', 'email', 'unique:users,email'],
+        'phone' => ['required', 'string'], // Add validation for phone number
+        'password' => ['required'],
+    ]);
 
-        $user = User::create([
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'is_admin' => false,
-            'password' => Hash::make($request->get('password')),
-        ]);
+    $user = User::create([
+        'name' => $request->get('name'),
+        'email' => $request->get('email'),
+        'phone' => $request->get('phone'), // Add phone number to user creation
+        'is_admin' => false,
+        'password' => Hash::make($request->get('password')),
+    ]);
 
-        Auth::login($user);
+    Auth::login($user);
 
-        return redirect()->route('homepage');
-    }
+    return redirect()->route('homepage');
+}
+
 
     public function login(Request $request)
     {
